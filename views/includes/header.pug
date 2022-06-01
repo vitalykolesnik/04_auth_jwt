@@ -1,0 +1,11 @@
+- isAuth = true
+
+header.header_container 
+	h4 Пицца
+	.header_form
+		a(href="") SignUp
+		if isAuth
+			a(href="") Login
+		else 
+			a(href="") Logout
+		

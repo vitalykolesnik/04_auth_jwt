@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.main_container,
+.catalog_container,
+.error_container {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "title title title" 
+                         "nav logo cat";
+    grid-template-columns: 50px 40% 1fr;
+    gap: 2em;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.catalog_container {
+    grid-template-areas: "title title" 
+    "nav piz";
+    grid-template-columns: 50px 1fr;
+}
+
+.main_title, .catalog_title, .error_title{  
+    grid-area: title; 
+    height: 2em;
+    text-align: center;
+    color: rgba(230, 113, 30, 0.973);;
+}
+
+.main_logo{  
+    grid-area: logo;  
+}
+
+.main_logo > img{   
+    min-width: 200px;
+    width: 100%;
+    object-fit: fill;
+}
+
+.main_content, .catalog_content {
+    padding: 0 1em;
+    grid-area: cat;
+}
+
+.main_nav, .catalog_nav {
+    grid-area: nav;
+}
+
+.catalog_content {
+    grid-area: piz;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;     
+    align-items: stretch;
+    align-content: start;  
+    gap: 30px;   
+}
+
+.recipe {
+    width: 200px;
+}
+
+.recipe > img{
+    width: 200px;
+}
+
+.catalog_content > li{
+   list-style-type: none;
+   padding: 15px;
+   box-shadow: 3px 7px 15px black;
+}
+
+.header_container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: rgba(218, 115, 42, 0.973);
+    color: white;
+    box-shadow: 2px 2px 10px black;
+}
+
+.header_form > a {
+    margin: 5px;
+    color: white;
+}

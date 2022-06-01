@@ -1,0 +1,24 @@
+mixin recipe(image, title, text)
+	li.recipe 
+		img(src=image)
+		h4= title
+		p= text
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title Pizza
+		link(rel="stylesheet", href="css/style.css")
+	body
+		include includes/header
+		catalog.catalog_container
+			.catalog_title 
+				h1 Каталог пиццы
+			.catalog_nav
+				p Перейти:
+				a(href="/") Home
+			ul.catalog_content
+				each val in recipes
+					+recipe(val.image, val.title, val.text)
