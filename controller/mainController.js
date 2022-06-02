@@ -1,12 +1,13 @@
 //DATABASE MOCK
-const { facts, recipes } = require('./data/data');
+const { facts, recipes } = require('../models/data');
+let isAuth = false;
 
 const getHome = (req, res) => {
-    res.render('home', { facts: facts });
+    res.render('home', { isAuth, facts: facts });
 };
 
 const getCatalog = (req, res) => {
-    res.render('catalog', { recipes: recipes });
+    res.render('catalog', { isAuth, recipes: recipes });
 };
 
 const errorRoute = (req, res) => {

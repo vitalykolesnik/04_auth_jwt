@@ -1,11 +1,12 @@
-- isAuth = true
-
-header.header_container 
-	h4 Пицца
-	.header_form
-		a(href="") SignUp
-		if isAuth
-			a(href="") Login
-		else 
-			a(href="") Logout
-		
+header.header
+	.header_container
+		.header_nav
+			a(href="/") Home
+			a(href="/catalog") Catalog
+			a(href="/users") Users
+		.header_form
+			if isAuth
+				a(href="/logout") Logout
+			else 
+				a(href="/login") Login
+				a(href="/signup") SignUp

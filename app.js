@@ -1,16 +1,30 @@
 require('dotenv').config();
 const express = require('express');
+const sequelize = require('./config/db_connect');
 const cors = require('cors');
 const app = express();
 const path = require('path');
-const router = require('./router');
+const router = require('./routes/route');
 
 const PORT = process.env.PORT || 5000;
 
 app.set('view engine', 'pug');
 
 app.use(cors());
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', router);
 
-app.listen(PORT, () => console.log(`Server started at ${PORT}`));
+const start = async () => {
+    try {
+        await sequelize.authenticate();
+        await sequelize.sync({ force: true });
+        app.listen(PORT, () =>
+            console.log(`Server started at port ${PORT}...`)
+        );
+    } catch (err) {
+        console.log(err.message);
+    }
+};
+
+start();
