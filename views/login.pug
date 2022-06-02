@@ -7,5 +7,10 @@ html(lang="en")
 		link(rel="stylesheet", href="css/style.css")
 	body
 		include includes/header
-		login.login_container
-			.page_title Login
+		signup.signup_container
+			.signup_form
+				h3 Log In
+				include includes/form
+
+script
+	include js/formEvent.js

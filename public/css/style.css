@@ -1,7 +1,12 @@
-*, html {
+* {	
 	padding: 0;
-	margin: 0;
+	margin: 0;	
 	font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+html {
+	height: 100%;
+	width: 100%;
 }
 
 .main_container,
@@ -14,7 +19,6 @@
 	width: 100%;
 	max-width: 1470px;
 	margin: 0 auto;
-	
 }
 
 a {
@@ -22,11 +26,40 @@ a {
 }
 
 .catalog_container {
-	display: flex;
+	display: flex;	
 	flex-flow: column;
 	width: 100%;
 	max-width: 1470px;
 	margin: 0 auto;
+}
+
+.signup_container {
+	max-width: 1470px;	
+}
+
+.signup_form {	
+	width: 400px;
+	margin: 200px auto;
+	box-shadow: 5px 10px 10px black;
+	padding: 20px;
+	text-align: center;
+}
+
+.signup_form form{
+	padding: 10px 20px;	
+	display: flex;	
+	flex-flow: column;
+	height: 150px;	
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.signup_form form > button{
+	width: 80px;
+}
+
+.signup_form form > input{
+	width: 100%;
 }
 
 .page_title {  

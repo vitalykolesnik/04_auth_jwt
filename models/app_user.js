@@ -1,5 +1,6 @@
 const sequelize = require('../config/db_connect');
 const { DataTypes, Op } = require('sequelize');
+const cryptPassword = require('../utils/crypt');
 
 const User = sequelize.define('app_user', {
     user_id: {
@@ -31,6 +32,10 @@ const User = sequelize.define('app_user', {
             },
         },
     },
+});
+
+User.addHook('beforeCreate', async (user) => {
+    user.password = await cryptPassword(user.password);
 });
 
 module.exports = User;

@@ -2,15 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const sequelize = require('./config/db_connect');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const app = express();
 const path = require('path');
-const router = require('./routes/route');
+
+const router = require('./routes/router');
 
 const PORT = process.env.PORT || 5000;
 
 app.set('view engine', 'pug');
 
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', router);
