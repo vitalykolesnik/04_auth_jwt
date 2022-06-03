@@ -1,5 +1,5 @@
-const handleError = (err) => {
-    let errors = { username: '', password: '' };
+const handleSubmitError = (err) => {
+    let errors = { login: '', password: '' };
 
     if (
         err.message.includes('Validation error') ||
@@ -12,4 +12,4 @@ const handleError = (err) => {
     return errors;
 };
 
-module.exports = handleError;
+module.exports = handleSubmitError;

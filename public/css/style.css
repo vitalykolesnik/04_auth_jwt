@@ -54,12 +54,26 @@ a {
 	align-items: flex-start;
 }
 
-.signup_form form > button{
-	width: 80px;
+form > div{
+	width: 100%;
+	height: 2em;
 }
 
-.signup_form form > input{
+form .buttons > button{	
+	width: 100px;
+	height: 2em;
+}
+
+form .buttons {	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+form > input{
 	width: 100%;
+	outline-color: rgba(218, 115, 42, 0.973);
+	outline-offset: 2px;
 }
 
 .page_title {  
@@ -133,4 +147,9 @@ a {
 .header_form a {
 	margin: 0 10px;
 	color: white;
+}
+
+.login.error,
+.password.error {
+	color: red;
 }

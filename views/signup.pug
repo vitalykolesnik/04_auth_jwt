@@ -1,16 +1,8 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-		title Pizza
-		link(rel="stylesheet", href="css/style.css")
-	body
-		include includes/header
-		signup.signup_container
-			.signup_form
-				h3 Sign Up
-				include includes/form
+include includes/header
+signup.signup_container
+	.signup_form
+		h3 Sign Up
+		include includes/formSignUp
 
 script
-	include js/formEvent.js
+	include script/signupEvent.js

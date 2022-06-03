@@ -1,5 +1,5 @@
 const sequelize = require('../config/db_connect');
-const { DataTypes, Op } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const cryptPassword = require('../utils/crypt');
 
 const User = sequelize.define('app_user', {
@@ -8,18 +8,18 @@ const User = sequelize.define('app_user', {
         primaryKey: true,
         autoIncrement: true,
     },
-    username: {
+    login: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: {
                 args: [3, 30],
-                msg: 'username must contain 3-30 chars',
+                msg: 'login must contain 3-30 chars',
             },
         },
         unique: {
             args: true,
-            msg: 'username already exists',
+            msg: 'this login already exists',
         },
     },
     password: {
