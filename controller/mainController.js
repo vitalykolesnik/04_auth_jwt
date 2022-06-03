@@ -1,6 +1,6 @@
 //DATABASE MOCK
 const { facts, recipes } = require('../models/data');
-let isAuth = false;
+const isAuth = false;
 
 const getHome = (req, res) => {
     res.render('home', { isAuth, facts: facts });

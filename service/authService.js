@@ -7,11 +7,11 @@ class AuthService {
             where: { login: login },
         });
         if (!user) {
-            throw Error('Incorrect login');
+            throw Error('incorrect login');
         }
         const auth = await bcrypt.compare(password, user.password);
         if (!auth) {
-            throw Error('Incorrect password');
+            throw Error('incorrect password');
         }
         return user;
     }

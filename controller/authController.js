@@ -14,6 +14,7 @@ class AuthController {
     }
 
     async logout_get(req, res) {
+        res.cookie('jwt', '', { maxAge: 1 });
         res.redirect('/');
     }
 
@@ -47,7 +48,8 @@ class AuthController {
             });
             res.status(200).json({ user: user.user_id });
         } catch (err) {
-            res.status(400).json({ message: err.message });
+            const errors = handleSubmitError(err);
+            res.status(400).json({ errors });
         }
     }
 

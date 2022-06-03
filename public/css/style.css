@@ -40,9 +40,10 @@ a {
 .signup_form {	
 	width: 400px;
 	margin: 200px auto;
-	box-shadow: 5px 10px 10px black;
+	box-shadow: 15px 20px 50px black;
 	padding: 20px;
 	text-align: center;
+	border-radius: 15px;
 }
 
 .signup_form form{

@@ -24,12 +24,9 @@ form.addEventListener('submit', async (e) => {
         const data = await res.json();
         console.log('Recive data: ' + data.message, data.user);
 
-        if (data.message) {
-            if (data.message.includes('login')) {
-                loginError.textContent = data.message;
-            } else if (data.message.includes('password')) {
-                passwordError.textContent = data.message;
-            }
+        if (data.errors) {
+            loginError.textContent = data.errors.login;
+            passwordError.textContent = data.errors.password;
         }
 
         if (data.user) {
