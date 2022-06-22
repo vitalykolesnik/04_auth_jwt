@@ -1,3 +1,8 @@
+mixin userName(text)
+	p Welcome,
+	p= text 	
+	p !
+
 doctype html
 html(lang="en")
 	head
@@ -12,9 +17,16 @@ html(lang="en")
 					a(href="/") Home
 					a(href="/catalog") Catalog
 				.header_form
-					//- h1 Hello, nickname!
-					a(href="/logout") LOGOUT
-					a(href="/login") LOGIN
+					if login
+						+userName(login)
+						a(href="/logout") LOGOUT
+					else 
+						a(href="/login") LOGIN
+						a(href="/signup") SIGN UP
+
+
+					//- a(href="/logout") LOGOUT
+					//- a(href="/login") LOGIN
 					//- if isAuth
 						a(href="/logout") LOGOUT
 					//- else 

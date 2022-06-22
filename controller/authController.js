@@ -25,7 +25,7 @@ class AuthController {
                 login: login,
                 password: password,
             });
-            const token = createToken(user.user_id);
+            const token = createToken(user.user_id, login);
             res.cookie('jwt', token, {
                 httpOnly: true,
                 maxAge: MAX_AGE * 1000,
@@ -41,7 +41,7 @@ class AuthController {
         const { login, password } = req.body;
         try {
             const user = await authService.login(login, password);
-            const token = createToken(user.user_id);
+            const token = createToken(user.user_id, login);
             res.cookie('jwt', token, {
                 httpOnly: true,
                 maxAge: MAX_AGE * 1000,
@@ -59,8 +59,8 @@ class AuthController {
     }
 }
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.TOKEN_SECRET, {
+const createToken = (id, login) => {
+    return jwt.sign({ id, login }, process.env.TOKEN_SECRET, {
         expiresIn: MAX_AGE,
     });
 };
